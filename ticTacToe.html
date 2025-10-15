@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+
+        }
+
+        #grid div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TIC TAC TOE</h1>
+
+    <div id="grid">
+        <div class="btn">1</div>
+        <div class="btn">2</div>
+        <div class="btn">3</div>
+        <div class="btn">4</div>
+        <div class="btn">5</div>
+        <div class="btn">6</div>
+        <div class="btn">7</div>
+        <div class="btn">8</div>
+        <div class="btn">9</div>
+    </div>
+
+    <script>
+        let player1choice = "X";
+        let player2choice = "0";
+        let btnsList = document.querySelectorAll(".btn");
+        let pos = "";
+
+        btnsList.forEach((btn) => {
+            btn.addEventListener("click",player1move)
+        })
+
+        function player1move()
+        {
+            event.target.innerText = player1choice;
+            player2move();
+        }
+
+        function player2move(){
+            pos = parseInt(Math.random()*9);
+            btnsList[pos].innerText = player2choice;
+        }
+
+    </script>
+</body>
+
+</html>
